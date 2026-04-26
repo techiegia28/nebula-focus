@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- SEO Meta Tags -->
+    <title>Nebula Focus - AI-Powered Study Timer for Students | Focus App</title>
+    <meta name="description" content="Nebula Focus is a beautiful Pomodoro-style study timer app designed for ambitious students. Focus on multiple subjects, track study sessions, and boost productivity with our stunning space-themed interface.">
+    <meta name="keywords" content="focus timer, study app, pomodoro timer, productivity app, student study tool, concentration timer, time management">
+    <meta name="author" content="Nebula Focus">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    
+    <!-- Open Graph (Social Media) -->
+    <meta property="og:title" content="Nebula Focus - The Most Beautiful Study Timer for Students">
+    <meta property="og:description" content="Master your focus with Nebula Focus. Track multiple subjects, take smart breaks, and achieve your study goals with our space-themed timer app.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nebulafocus.app">
+    <meta property="og:image" content="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'><rect fill='%230b0f1a' width='1200' height='630'/><text x='600' y='315' font-size='200' text-anchor='middle' dominant-baseline='middle' fill='%2300ffd5' font-weight='bold'>Nebula Focus</text></svg>">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nebula Focus - Study Timer App">
+    <meta name="twitter:description" content="The most beautiful focus timer for ambitious students">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>🌌</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect fill='%230b0f1a' width='180' height='180'/><text y='135' font-size='120' text-anchor='middle' x='90' fill='%2300ffd5'>🌌</text></svg>">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://nebulafocus.app/">
+    
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <style>
+        html, body {
+            margin: 0; padding: 0;
+            width: 100%; height: 100%;
+            overflow: hidden;
+            background-color: #0b0f1a;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Roboto, sans-serif; 
+            background: radial-gradient(ellipse at 20% 50%, #1a0533 0%, #0b0f1a 50%, #001a33 100%);
+            background-size: cover;
+            color: white; 
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            text-align: center;
+        }
+
+        /* Animated star background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                radial-gradient(1px 1px at 10% 20%, white, transparent),
+                radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.7), transparent),
+                radial-gradient(1px 1px at 50% 10%, white, transparent),
+                radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,0.5), transparent),
+                radial-gradient(1px 1px at 90% 40%, white, transparent),
+                radial-gradient(1px 1px at 15% 75%, rgba(255,255,255,0.6), transparent),
+                radial-gradient(1px 1px at 45% 45%, white, transparent),
+                radial-gradient(1px 1px at 80% 15%, rgba(255,255,255,0.8), transparent),
+                radial-gradient(1px 1px at 25% 35%, white, transparent),
+                radial-gradient(1px 1px at 60% 90%, rgba(255,255,255,0.4), transparent),
+                radial-gradient(2px 2px at 5% 55%, rgba(125,115,255,0.6), transparent),
+                radial-gradient(2px 2px at 85% 70%, rgba(0,255,213,0.4), transparent),
+                radial-gradient(1px 1px at 40% 25%, white, transparent),
+                radial-gradient(1px 1px at 65% 55%, rgba(255,255,255,0.7), transparent),
+                radial-gradient(1px 1px at 95% 85%, white, transparent),
+                radial-gradient(1px 1px at 20% 90%, rgba(255,255,255,0.5), transparent),
+                radial-gradient(1px 1px at 55% 70%, white, transparent),
+                radial-gradient(1px 1px at 75% 30%, rgba(255,255,255,0.6), transparent);
+            animation: twinkle 4s ease-in-out infinite alternate;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        /* Nebula glow orbs */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background:
+                radial-gradient(ellipse 300px 200px at 15% 30%, rgba(108,99,255,0.12), transparent),
+                radial-gradient(ellipse 250px 150px at 85% 70%, rgba(0,255,213,0.08), transparent),
+                radial-gradient(ellipse 200px 300px at 50% 90%, rgba(255,100,100,0.06), transparent);
+            z-index: 0;
+            pointer-events: none;
+            animation: nebulaPulse 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes nebulaPulse {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        .overlay {
+            background: rgba(0, 0, 0, 0.5);
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0;
+        }
+
+        .container {
+            width: 85%; max-width: 400px;
+            position: relative; z-index: 1;
+        }
+
+        h1 { 
+            font-size: 2.2rem; margin: 0; color: #00ffd5; 
+            text-shadow: 0 0 15px rgba(0,255,213,0.6), 0 0 40px rgba(0,255,213,0.3);
+            animation: glowPulse 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowPulse {
+            0% { text-shadow: 0 0 15px rgba(0,255,213,0.6), 0 0 40px rgba(0,255,213,0.3); }
+            100% { text-shadow: 0 0 25px rgba(0,255,213,0.9), 0 0 60px rgba(0,255,213,0.5); }
+        }
+
+        .timer { 
+            font-size: 100px; font-weight: 800; 
+            margin: 10px 0; color: #7d73ff; 
+            text-shadow: 0 0 30px rgba(125, 115, 255, 0.8), 0 0 60px rgba(125,115,255,0.4);
+            font-variant-numeric: tabular-nums;
+            transition: color 0.5s;
+        }
+
+        .timer.break-mode {
+            color: #ff9f43;
+            text-shadow: 0 0 30px rgba(255,159,67,0.8), 0 0 60px rgba(255,159,67,0.4);
+        }
+
+        .msg { font-size: 1.2rem; color: #00ffd5; margin-bottom: 15px; font-weight: bold; min-height: 50px; }
+
+        input, button { 
+            padding: 16px; margin: 6px 0; 
+            border-radius: 14px; border: none;
+            font-size: 1rem; font-weight: bold;
+            width: 100%; box-sizing: border-box;
+            transition: all 0.2s;
+        }
+
+        input { 
+            background: rgba(255, 255, 255, 0.1); 
+            color: white; 
+            border: 1px solid rgba(125,115,255,0.5); 
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        input:focus {
+            outline: none;
+            border-color: #00ffd5;
+            box-shadow: 0 0 15px rgba(0,255,213,0.2);
+            background: rgba(255,255,255,0.15);
+        }
+        input::placeholder { color: rgba(255,255,255,0.4); }
+
+        button { 
+            background: rgba(108, 99, 255, 0.8); 
+            color: white; 
+            cursor: pointer; 
+            transition: all 0.2s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(108,99,255,0.3);
+        }
+        button:hover { 
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(108,99,255,0.4);
+        }
+        button:active { transform: scale(0.96) translateY(0); }
+        
+        .btn-start { 
+            background: linear-gradient(135deg, #00ffd5, #00c9a7); 
+            color: #000; 
+            margin-top: 10px;
+            border: none;
+            box-shadow: 0 4px 20px rgba(0,255,213,0.3);
+        }
+        .btn-start:hover {
+            box-shadow: 0 6px 30px rgba(0,255,213,0.5);
+        }
+        .btn-break { 
+            background: linear-gradient(135deg, #ff9f43, #ee5a24);
+            border: none;
+            box-shadow: 0 4px 15px rgba(255,159,67,0.3);
+        }
+        .btn-test { 
+            background: rgba(255,255,255,0.08); 
+            color: #fff; 
+            font-size: 0.8rem; 
+            width: auto; 
+            padding: 10px 20px; 
+            border: 1px dashed rgba(125,115,255,0.6);
+        }
+        .btn-reset { 
+            background: transparent; 
+            color: rgba(255,255,255,0.3); 
+            font-size: 0.7rem; 
+            margin-top: 20px;
+            border: none;
+            box-shadow: none;
+        }
+        .btn-reset:hover {
+            color: rgba(255,255,255,0.6);
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Glassmorphism card */
+        .glass-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 20px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+
+        #login-screen, #setup, #app {
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hidden { display: none; }
+
+        /* Subtitle */
+        .subtitle {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+            margin: 5px 0 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Subject row */
+        .subject-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+        .subject-row input:first-child { flex: 2; }
+        .subject-row input:last-child { flex: 1; }
+    </style>
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<div class="container">
+    <div id="login-screen" class="glass-card">
+        <h1>🌌 Nebula Focus</h1>
+        <p class="subtitle">Study Mission Control</p>
+        <p style="color:rgba(255,255,255,0.6); margin-bottom:10px;">Commander Name:</p>
+        <input type="text" id="user-name" placeholder="Type your name...">
+        <button class="btn-start" onclick="login()">Enter Nebula 🚀</button>
+    </div>
+
+    <div id="setup" class="hidden glass-card">
+        <h1 id="greet">Hello!</h1>
+        <p class="subtitle">Set Your Targets</p>
+        <div id="subjects" style="margin-top: 15px;"></div>
+        <button onclick="addSubject()" style="background:rgba(125,115,255,0.3); margin-top:8px;">+ Add Subject</button>
+        <button class="btn-start" onclick="start()">Launch 🚀</button>
+        <br>
+        <button class="btn-test" onclick="playSineSound()">🔊 Test Sound</button>
+    </div>
+
+    <div id="app" class="hidden glass-card">
+        <div class="timer" id="timer">00:00</div>
+        <div id="msg" class="msg">Ready?</div>
+        
+        <button id="pauseBtn" onclick="pause()">⏸ Pause</button>
+        <button id="resumeBtn" class="hidden" onclick="resume()">▶ Resume</button>
+        <button class="btn-break" onclick="manualBreak()">☕ Take Break</button>
+        
+        <div id="choice" class="hidden" style="margin-top: 15px;"></div>
+    </div>
+    
+    <button class="btn-reset" onclick="location.reload()">↺ Restart App</button>
+</div>
+
+<script>
+// Analytics tracking (optional - for future use)
+if (typeof window.gtag === 'undefined') {
+    window.dataLayer = window.dataLayer || [];
+}
+
+let subjectList = [];
+let currentSubject = 0;
+let timeLeft = 0;
+let timerInterval; 
+let paused = false;
+let mode = "study";
+let commanderName = "";
+
+function playSineSound() {
+    try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        const audioCtx = new AudioContext();
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        oscillator.type = 'sine';
+        oscillator.frequency.setValueAtTime(880, audioCtx.currentTime); 
+        gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+        gainNode.gain.linearRampToValueAtTime(0.5, audioCtx.currentTime + 0.1);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 1);
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        oscillator.start(); oscillator.stop(audioCtx.currentTime + 1);
+    } catch(e) { console.log("Audio Error:", e); }
+}
+
+function login() {
+    commanderName = document.getElementById("user-name").value.trim();
+    if(!commanderName) return alert("Enter a name! 🚀");
+    document.getElementById("login-screen").classList.add("hidden");
+    document.getElementById("setup").classList.remove("hidden");
+    document.getElementById("greet").innerText = "Welcome, " + commanderName + "! 🌌";
+    addSubject();
+}
+
+function addSubject() {
+    let div = document.createElement("div");
+    div.className = "subject-row";
+    div.innerHTML = `<input placeholder="Subject name" /><input type="number" placeholder="Mins" min="1" />`;
+    document.getElementById("subjects").appendChild(div);
+}
+
+function start() {
+    let rows = document.querySelectorAll("#subjects .subject-row");
+    rows.forEach(row => {
+        let inps = row.querySelectorAll("input");
+        if(inps[0].value.trim()) {
+            subjectList.push({ name: inps[0].value.trim(), time: Number(inps[1].value) || 25 });
+        }
+    });
+    if(subjectList.length === 0) return alert("Add at least one subject!");
+    document.getElementById("setup").classList.add("hidden");
+    document.getElementById("app").classList.remove("hidden");
+    startSubject();
+}
+
+function startSubject() {
+    if(currentSubject >= subjectList.length) {
+        document.getElementById("timer").innerText = "🏆";
+        document.getElementById("timer").style.fontSize = "60px";
+        document.getElementById("msg").innerText = "MISSION COMPLETE, " + commanderName.toUpperCase() + "! You're a star! ⭐";
+        document.getElementById("pauseBtn").classList.add("hidden");
+        document.getElementById("resumeBtn").classList.add("hidden");
+        return;
+    }
+    mode = "study";
+    document.getElementById("timer").classList.remove("break-mode");
+    timeLeft = subjectList[currentSubject].time * 60;
+    document.getElementById("msg").innerText = "🎯 Focusing: " + subjectList[currentSubject].name;
+    document.getElementById("pauseBtn").classList.remove("hidden");
+    document.getElementById("resumeBtn").classList.add("hidden");
+    runTimer();
+}
+
+function pause() {
+    paused = true;
+    clearInterval(timerInterval);
+    document.getElementById("msg").innerText = "⏸ Paused — take a breath!";
+    document.getElementById("pauseBtn").classList.add("hidden");
+    document.getElementById("resumeBtn").classList.remove("hidden");
+}
+
+function resume() {
+    paused = false;
+    document.getElementById("msg").innerText = mode === "study" 
+        ? "🎯 Focusing: " + subjectList[currentSubject].name 
+        : "☕ Break time...";
+    document.getElementById("resumeBtn").classList.add("hidden");
+    document.getElementById("pauseBtn").classList.remove("hidden");
+    runTimer();
+}
+
+function manualBreak() { 
+    clearInterval(timerInterval);
+    mode = "break";
+    document.getElementById("timer").classList.add("break-mode");
+    timeLeft = 5 * 60;
+    document.getElementById("msg").innerText = "🌌 Orbiting for Break... ☕"; 
+    runTimer(); 
+}
+
+function runTimer() {
+    clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+        let m = Math.floor(timeLeft / 60);
+        let s = timeLeft % 60;
+        document.getElementById("timer").innerText = `${m}:${s < 10 ? "0" : ""}${s}`;
+        
+        if(timeLeft <= 0) {
+            clearInterval(timerInterval);
+            playSineSound();
+            if(mode === "study") {
+                currentSubject++;
+                document.getElementById("msg").innerText = "🔔 Time's Up!";
+                showChoice();
+            } else {
+                document.getElementById("timer").classList.remove("break-mode");
+                startSubject();
+            }
+        }
+        timeLeft--;
+    }, 1000);
+}
+
+function showChoice() {
+    let choiceDiv = document.getElementById("choice");
+    choiceDiv.classList.remove("hidden");
+    choiceDiv.innerHTML = `
+        <button class="btn-start" onclick="this.parentElement.classList.add('hidden'); startSubject()">Next Target 🚀</button>
+        <button class="btn-break" onclick="this.parentElement.classList.add('hidden'); manualBreak()">Take a Break ☕</button>
+    `;
+}
+</script>
+</body>
+</html>
