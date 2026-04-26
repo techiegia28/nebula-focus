@@ -35,6 +35,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6NF1N6WYJ9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6NF1N6WYJ9');
+    </script>
+    
     <style>
         html, body {
             margin: 0; padding: 0;
@@ -292,6 +301,9 @@
     </div>
     
     <button class="btn-reset" onclick="location.reload()">↺ Restart App</button>
+    <div style="margin-top: 30px; text-align: center;">
+        <a href="about.html" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.8rem; transition: color 0.3s;" onmouseover="this.style.color='#00ffd5'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">← Back to Info</a>
+    </div>
 </div>
 
 <script>
